@@ -84,3 +84,19 @@ display(head);
 reverse();
 display(head);
 ```
+
+## 3.Redux的Compose函数
+
+```javascript
+function compose(...funcs) {
+    if (funcs.length === 0) {
+        return arg => arg
+    }
+ 
+    if (funcs.length === 1) {
+        return funcs[0]
+    }
+ 
+    return funcs.reduce((a, b) => (...args) => a(b(...args)))
+} 
+```
